@@ -1,0 +1,29 @@
+方法1:https://blog.csdn.net/b_evan/article/details/72858149
+
+
+方法2:
+1.去nginx管网
+2.选择download
+3.文档中找官网安装方式
+4.下载认证密钥
+  wget http://nginx.org/keys/nginx_signing.key
+  会下载到当前目录下的nginx_signing.key文件中
+5.安装
+  sudo apt-key add nginx_signing.key
+6.配置源
+   切换到对应的文件,并编辑
+    vim  /etc/apt/sources.list
+  加上源:
+    deb http://nginx.org/packages/ubuntu/ codename nginx
+    deb-src http://nginx.org/packages/ubuntu/ codename nginx 
+    注意将codename替换成当前codename  16.04 对应为: xenial
+  保存退出
+7.更新跟安装
+  apt-get update
+  apt-get install nginx
+8.查看nginx服务是否开启
+   ps -ef | grep nginx
+9.启动 sudo nginx
+10.直接输入地址可以访问 即可.. 
+
+
